@@ -11,7 +11,28 @@
     tools:context="softwaredesign.mx.threadexampleandroid.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Cantidad:" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/txtnumfacto"
+        android:singleLine="true"
+        android:shadowColor="@android:color/darker_gray"
+        android:text="10" />
+
+    <Button
+        android:text="Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtnumfacto"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btncalcular" />
 </RelativeLayout>
