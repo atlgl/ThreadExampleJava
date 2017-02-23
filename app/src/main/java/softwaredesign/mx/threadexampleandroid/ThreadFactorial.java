@@ -1,5 +1,7 @@
 package softwaredesign.mx.threadexampleandroid;
 
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 
 /**
@@ -8,21 +10,33 @@ import android.os.SystemClock;
 
 public class ThreadFactorial extends Thread {
 
+    private Handler handler;
+
     public String numero;
 
     public ThreadFactorial(String numero) {
-        this.numero = numero;
-    }
+        this.setName("Hilo Calcula Factorial");
 
-    private String calcularFacto(String dato){
-        int valor=Integer.parseInt(dato);
-        return String.valueOf(factorial(valor));
+        this.numero = numero;
     }
 
     @Override
     public void run() {
-
         numero=calcularFacto(numero);
+        Message message=new Message();
+        message.what=1;
+        message.obj=numero;
+        handler.sendMessage(message);
+    }
+
+    /***
+     * Metodo que calcula un numero fatorial
+     * @param dato en cadena
+     * @return regresa una cadena
+     */
+    private String calcularFacto(String dato){
+        int valor=Integer.parseInt(dato);
+        return String.valueOf(factorial(valor));
     }
 
     /***
@@ -45,5 +59,13 @@ public class ThreadFactorial extends Thread {
 
     public String setNumero(String numero) {
         return this.numero = numero;
+    }
+
+    public Handler getHandler() {
+        return handler;
+    }
+
+    public void setHandler(Handler handler) {
+        this.handler = handler;
     }
 }
