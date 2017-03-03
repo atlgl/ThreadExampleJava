@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             DownloadImage image=new DownloadImage();
             image.execute("http://www.legionx.com.mx/imagenes/paris.jpg");
+
             DownloadFile file=new DownloadFile();
             file.execute("");
 
@@ -124,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private class DownloadFile extends AsyncTask<String,Integer,String>{
-
 
         @Override
         protected String doInBackground(String... params) {
